@@ -1,0 +1,210 @@
+.navbar {
+  display: grid;
+  grid-template: repeat(2, 1fr) / 1fr auto auto;
+  grid-template-areas: 
+    'logo icons menu'
+    'search search search'
+  ;
+  padding: 0.8em 1.5em;
+  gap: 0.5em 0.75em;
+
+  & .logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    & > svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    & h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  & .menu-btn {
+    grid-area: menu;
+    width: 1.25rem;
+    height: 1.25rem;
+    place-self: center;
+  }
+
+  & .nav-icons,
+  & .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    list-style: none;
+    padding: 0;
+    font-weight: 500;
+  }
+
+  & .nav-links {
+    position: absolute;
+    top: 6%;
+    right: 5%;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1.5em 2em;
+    background: #EEE;
+    border-radius: 0.2em;
+  }
+
+  & .nav-icons {
+    grid-area: icons;
+
+    & > li {
+      width: 1.25rem;
+      height: 1.25rem;
+      position: relative;
+
+      & > svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      & > span {
+        position: absolute;
+        background: #FFEA11;
+        top: -30%;
+        right: -30%;
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  & .search {
+    padding: 0.65rem 1rem;
+    border: none;
+    background: #EEE;
+    grid-area: search;
+
+    &::placeholder {
+      font-family: inherit;
+      font-weight: 300;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .navbar {
+    grid-template: repeat(2, 1fr) / 1fr auto auto;
+    grid-template-areas: 
+      'logo links icons'
+      'search search search'
+    ;
+    gap: 0.5em 1.5em;
+
+    & .menu-btn {
+      display: none;
+      grid-area: unset;
+    }
+
+    & .nav-links {
+      grid-area: links;
+      position: static;
+      flex-direction: row;
+      align-items: flex-end;
+      background: none;
+      padding: 0;
+
+      & > li {
+        cursor: pointer;
+      }
+    }
+
+    & .logo {
+      & > svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+  
+      & h1 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .navbar {
+    display: flex;
+    padding: 1rem 2.5rem;
+    background: #EEE;
+    
+    & .logo {
+      flex: 1;
+    }
+
+    & .search {
+      flex: 1;
+      background: #FFF;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    display: flex;
+    padding: 0.5rem 5rem;
+    gap: 2.5em;
+
+    & .logo {
+      gap: 0.8em;
+      cursor: pointer;
+
+      & > svg {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      & h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+
+    & .search {
+      font-size: 1.25rem;
+      font-family: inherit;
+    }
+
+    & .nav-icons,
+    & .nav-links {
+      gap: 2em;
+
+      & > li {
+        font-size: 1.25rem;
+      }
+    }
+
+    & .nav-icons {
+      & > li {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        & > span {
+          top: -55%;
+          right: -55%;
+          width: 24px;
+          height: 24px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
